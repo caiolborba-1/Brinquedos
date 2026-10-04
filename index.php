@@ -51,7 +51,11 @@ $resultado = $stmt->get_result();
 
         <label>Nome:</label>
             <br>
-            <select name="categoria" required>
+             <input type="text" name="nome" required>
+        <br><br>
+        <label>Categoria:</label>
+            <br>
+         <select name="categoria" required>
                 <option value="">Selecione uma categoria</option>
                 <option value="Carro">Carro</option>
                 <option value="Boneca">Boneca</option>
@@ -60,11 +64,7 @@ $resultado = $stmt->get_result();
                 <option value="Blocos de Montar">Blocos de Montar</option>
                 <option value="Action Figure">Action Figure</option>
             </select>
-        <br><br>
-
-        <label>Categoria:</label>
-            <br>
-        <input type="text" name="categoria" required>
+    
             <br><br>
         <label>Faixa Etária:</label>
             <br>
@@ -108,8 +108,8 @@ $resultado = $stmt->get_result();
                 <td><?php echo $brinquedo["quantidade_estoque"]; ?></td>
 
                 <td>
-                    <a href="editar.php?id=<?php echo $brinquedo["id"]; ?>">Editar</a>
-                    <a href="excluir.php?id=<?php echo $brinquedo["id"]; ?>">Excluir</a>
+                   <a href="/Brinquedos/public/editar.php?id=<?php echo $brinquedo["id"]; ?>">Editar</a>
+                    <a href="/Brinquedos/public/excluir.php?id=<?php echo $brinquedo["id"]; ?>">Excluir</a>
                 </td>
 
             </tr>

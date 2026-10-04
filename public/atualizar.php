@@ -3,7 +3,7 @@
 include "../infra/conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -14,13 +14,37 @@ $faixa_etaria = trim($_POST["faixa_etaria"]);
 $preco = $_POST["preco"];
 $quantidade_estoque = $_POST["quantidade_estoque"];
 
-if (!is_numeric($id) || $nome == "" || $categoria == "" || $faixa_etaria == "" || !is_numeric($preco) || $preco < 0 || !is_numeric($quantidade_estoque) || $quantidade_estoque < 0) {
+if (
+    !is_numeric($id) ||
+    $nome == "" ||
+    $categoria == "" ||
+    $faixa_etaria == "" ||
+    !is_numeric($preco) ||
+    $preco < 0 ||
+    !is_numeric($quantidade_estoque) ||
+    $quantidade_estoque < 0
+) {
     die("Dados inválidos.");
 }
 
-$sql = "UPDATE brinquedos SET nome = ?, categoria = ?, faixa_etaria = ?, preco = ?, quantidade_estoque = ? WHERE id = ?";
+$sql = "UPDATE brinquedos 
+        SET nome = ?, 
+            categoria = ?, 
+            faixa_etaria = ?, 
+            preco = ?, 
+            quantidade_estoque = ? 
+        WHERE id = ?";
+
 $stmt = $conexao->prepare($sql);
-$stmt->bind_param("sssidi", $nome, $categoria, $faixa_etaria, $preco, $quantidade_estoque, $id
+
+$stmt->bind_param(
+    "sssidi",
+    $nome,
+    $categoria,
+    $faixa_etaria,
+    $preco,
+    $quantidade_estoque,
+    $id
 );
 
 if (!$stmt->execute()) {
@@ -29,7 +53,7 @@ if (!$stmt->execute()) {
 
 $stmt->close();
 
-header("Location: index.php");
+header("Location: ../index.php");
 exit;
 
 ?>

@@ -37,42 +37,110 @@ $stmt->close();
 <body>
 
     <h1>Editar Brinquedo</h1>
+
     <form action="atualizar.php" method="POST">
+
         <input type="hidden" name="id" value="<?php echo $brinquedo["id"]; ?>">
-    <label>Nome:</label>
+
+        <label>Nome:</label>
         <br>
-    <input type="text" name="nome" value="<?php echo htmlspecialchars($brinquedo["nome"]); ?>" required>
+
+        <input
+            type="text"
+            name="nome"
+            value="<?php echo htmlspecialchars($brinquedo["nome"]); ?>"
+            required
+        >
+
         <br><br>
-        
-    <label>Categoria:</label>
-    <label>Categoria:</label>
+
+        <label>Categoria:</label>
         <br>
-<select name="categoria" required>
-    <option value="">Selecione uma categoria</option>
-    <option value="Carro" <?php if ($brinquedo["categoria"] == "Carro") echo "selected"; ?>>Carro</option>
-    <option value="Boneca" <?php if ($brinquedo["categoria"] == "Boneca") echo "selected"; ?>>Boneca</option>
-    <option value="Jogo" <?php if ($brinquedo["categoria"] == "Jogo") echo "selected"; ?>>Jogo</option>
-    <option value="Pelúcia" <?php if ($brinquedo["categoria"] == "Pelúcia") echo "selected"; ?>>Pelúcia</option>
-    <option value="Blocos de Montar" <?php if ($brinquedo["categoria"] == "Blocos de Montar") echo "selected"; ?>>Blocos de Montar</option>
-    <option value="Action Figure" <?php if ($brinquedo["categoria"] == "Action Figure") echo "selected"; ?>>Action Figure</option>
-</select>
+
+        <select name="categoria" required>
+
+            <option value="">Selecione uma categoria</option>
+
+            <option value="Carro"
+                <?php if ($brinquedo["categoria"] == "Carro") echo "selected"; ?>>
+                Carro
+            </option>
+
+            <option value="Boneca"
+                <?php if ($brinquedo["categoria"] == "Boneca") echo "selected"; ?>>
+                Boneca
+            </option>
+
+            <option value="Jogo"
+                <?php if ($brinquedo["categoria"] == "Jogo") echo "selected"; ?>>
+                Jogo
+            </option>
+
+            <option value="Pelúcia"
+                <?php if ($brinquedo["categoria"] == "Pelúcia") echo "selected"; ?>>
+                Pelúcia
+            </option>
+
+            <option value="Blocos de Montar"
+                <?php if ($brinquedo["categoria"] == "Blocos de Montar") echo "selected"; ?>>
+                Blocos de Montar
+            </option>
+
+            <option value="Action Figure"
+                <?php if ($brinquedo["categoria"] == "Action Figure") echo "selected"; ?>>
+                Action Figure
+            </option>
+
+        </select>
+
         <br><br>
+
         <label>Faixa Etária:</label>
-            <br>
-        <input type="text" name="faixa_etaria" value="<?php echo htmlspecialchars($brinquedo["faixa_etaria"]); ?>" required >
-            <br><br>
-        <label>Preço:</label>
-            <br>
-        <input type="number" name="preco" step="0.01" min="0" value="<?php echo $brinquedo["preco"]; ?>" required>
-            <br><br>
-        <label>Quantidade em Estoque:</label>
-            <br>
-        <input type="number" name="quantidade_estoque" min="0" value="<?php echo $brinquedo["quantidade_estoque"]; ?>" required>
-            <br><br>
-        <input type="submit" value="Atualizar">
-    </form>
         <br>
-    <a href="index.php">Voltar</a>
+
+        <input
+            type="text"
+            name="faixa_etaria"
+            value="<?php echo htmlspecialchars($brinquedo["faixa_etaria"]); ?>"
+            required
+        >
+
+        <br><br>
+
+        <label>Preço:</label>
+        <br>
+
+        <input
+            type="number"
+            name="preco"
+            step="0.01"
+            min="0"
+            value="<?php echo $brinquedo["preco"]; ?>"
+            required
+        >
+
+        <br><br>
+
+        <label>Quantidade em Estoque:</label>
+        <br>
+
+        <input
+            type="number"
+            name="quantidade_estoque"
+            min="0"
+            value="<?php echo $brinquedo["quantidade_estoque"]; ?>"
+            required
+        >
+
+        <br><br>
+
+        <input type="submit" value="Atualizar">
+
+    </form>
+
+    <br>
+
+    <a href="../index.php">Voltar</a>
 
 </body>
 
