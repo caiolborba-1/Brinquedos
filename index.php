@@ -1,6 +1,6 @@
 <?php
 
-include "../infra/conexao.php";
+include "infra/conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -51,8 +51,15 @@ $resultado = $stmt->get_result();
 
         <label>Nome:</label>
             <br>
-        <input type="text" name="nome" required>
-
+            <select name="categoria" required>
+                <option value="">Selecione uma categoria</option>
+                <option value="Carro">Carro</option>
+                <option value="Boneca">Boneca</option>
+                <option value="Jogo">Jogo</option>
+                <option value="Pelúcia">Pelúcia</option>
+                <option value="Blocos de Montar">Blocos de Montar</option>
+                <option value="Action Figure">Action Figure</option>
+            </select>
         <br><br>
 
         <label>Categoria:</label>
@@ -65,11 +72,11 @@ $resultado = $stmt->get_result();
             <br><br>
         <label>Preço:</label>
             <br>
-        <input type="number" name="preco" step="0.01" min="0" required>
+        <input type="number" name="preco"required>
             <br><br>
         <label>Quantidade em Estoque:</label>
             <br>
-        <input type="number" name="quantidade_estoque" min="0" required>
+        <input type="number" name="quantidade_estoque" required>
             <br><br>
         <input type="submit" value="Cadastrar Brinquedo">
 
